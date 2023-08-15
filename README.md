@@ -1,7 +1,29 @@
-# Vue 3 + Vite
+# Image & PDF Gallery
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a simple gallery application that displays images and PDF files by link. It is built with Vue 3, Vite, and @tato30/vue-pdf.
 
-## Recommended IDE Setup
+## Quick Start
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+To get started, clone the repository and install the dependencies:
+
+```
+git clone https://github.com/TomatoSoup0126/image-pdf-gallery
+cd image-pdf-gallery
+pnpm i
+```
+
+Once the dependencies are installed, you can start the application with the following command:
+
+```
+pnpm dev
+```
+
+The application will be served on port 8080. You can access it at `http://localhost:5173`.
+
+## Technology stack
+
+The application is built with the following stack:
+
+* [Vue 3](https://vuejs.org/)
+* [Vite](https://vitejs.dev/)
+* [@tato30/vue-pdf](https://github.com/TaTo30/VuePDF)
