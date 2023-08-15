@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import PreviewGallery from './components/PreviewGallery.vue'
 
 const previewFileLinks = [
@@ -13,10 +13,12 @@ const previewFileLinks = [
   'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf',
 ]
 
-const selectedLink = ref(previewFileLinks[0])
 
-const handleSelect = (link) => {
-  selectedLink.value = link
+const selectedIndex = ref(0)
+const selectedLink = computed(() => previewFileLinks[selectedIndex.value])
+
+const handleSelect = (index) => {
+  selectedIndex.value = index
 }
 </script>
 
@@ -24,6 +26,7 @@ const handleSelect = (link) => {
   <div class="container">
     <PreviewGallery
       :links="previewFileLinks"
+      :selected-index="selectedIndex"
       @show="handleSelect"
     />
     <div>

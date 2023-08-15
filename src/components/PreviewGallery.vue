@@ -7,23 +7,27 @@ const props = defineProps({
   links: {
     type: Array,
     required: true
+  },
+  selectedIndex: {
+    type: Number,
   }
 })
 
 const emit = defineEmits(['show'])
 
-const handleClick = (link) => {
-  emit('show', link)
+const handleClick = (index) => {
+  emit('show', index)
 }
 </script>
 
 <template>
   <div class="gallery-container">
     <div
-      class="gallery-item"
-      v-for="link in props.links"
+      v-for="(link, index) in props.links"
       :key="link"
-      @click="handleClick(link)"
+      class="gallery-item"
+      :class="{ 'gallery-item--active': props.selectedIndex === index }"
+      @click="handleClick(index)"
     >
       <div
         v-if="!isPdfLink(link)"
@@ -62,5 +66,10 @@ const handleClick = (link) => {
 .gallery-item {
   margin-bottom: 1rem;
   cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.gallery-item--active {
+  border: 2px solid rgb(250 204 21);;
 }
 </style>
