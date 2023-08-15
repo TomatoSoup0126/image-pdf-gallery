@@ -16,7 +16,6 @@ const props = defineProps({
 const emit = defineEmits(['show'])
 
 const handleClick = (index) => {
-  console.log('handleClick', index)
   emit('show', index)
 }
 </script>
