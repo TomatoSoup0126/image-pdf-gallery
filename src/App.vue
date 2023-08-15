@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import PreviewGallery from './components/PreviewGallery.vue'
+import Viewer from './components/Viewer.vue'
 
 const previewFileLinks = [
   'https://scandel.github.io/pdfThumbnails/example.pdf',
@@ -29,15 +30,15 @@ const handleSelect = (index) => {
       :selected-index="selectedIndex"
       @show="handleSelect"
     />
-    <div>
-      {{ selectedLink }}
-    </div>
+    <Viewer :link="selectedLink" />
   </div>
 </template>
 
 <style scoped>
 .container {
   display: flex;
+  max-height: 90vh;
+  overflow: hidden;
 }
 .previewer-wrapper {
   width: 20%;
