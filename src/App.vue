@@ -1,30 +1,46 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import PreviewGallery from './components/PreviewGallery.vue'
+
+const previewFileLinks = [
+  'https://scandel.github.io/pdfThumbnails/example.pdf',
+  'https://www.yummyday.com.tw/upload/5V/l1i/f03c6796549a4dc5b0fb1ca8633b636e.jpg',
+  'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf',
+  'https://scandel.github.io/pdfThumbnails/example.pdf',
+  'https://cdn.loveandlemons.com/wp-content/uploads/2023/01/tomato-soup.jpg',
+  'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf',
+  'https://scandel.github.io/pdfThumbnails/example.pdf',
+  'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf',
+]
+
+const selectedLink = ref(previewFileLinks[0])
+
+const handleSelect = (link) => {
+  selectedLink.value = link
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <PreviewGallery
+      :links="previewFileLinks"
+      @show="handleSelect"
+    />
+    <div>
+      {{ selectedLink }}
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  display: flex;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.previewer-wrapper {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 </style>
