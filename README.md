@@ -1,6 +1,7 @@
 # Image & PDF Gallery
+![image](https://raw.githubusercontent.com/TomatoSoup0126/image-pdf-gallery/master/public/screenshot.png)
 
-This is a simple gallery application that displays images and PDF files by link. It is built with Vue 3, Vite, and @tato30/vue-pdf.
+This is a simple gallery that displays images and PDF files by link for practice. It is built with Vue 3, Vite, and @tato30/vue-pdf.
 
 ## Quick Start
 
